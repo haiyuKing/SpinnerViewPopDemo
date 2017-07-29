@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
 	/**下拉菜单列表集合*/
 	private ArrayList<SpinnearModel> mSpinner2List;
 
-	private TextView tv_show;
+	private SpinnerViewPop spinnerView_pop3;
 
+	private TextView tv_show;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
 		spinnerView_pop2 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop2);
 		spinnerView_pop2.setHandedPopup(false);//默认为false，点击下拉菜单区域直接弹出下拉菜单
+
+		spinnerView_pop3 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop3);
+		spinnerView_pop3.setSpinnerType(SpinnerViewPop.TYPE_DIALOG);//设置对话框样式，默认为popwindow样式
+		spinnerView_pop3.setHandedPopup(false);//默认为false，点击下拉菜单区域直接弹出下拉菜单
 
 		tv_show = (TextView) findViewById(R.id.tv_show);
 
@@ -84,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
 			spinnerView_pop2.setData(mSpinner2List);//设置下拉菜单列表集合源
 			spinnerView_pop2.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
 		}
+
+		//设置下拉菜单显示的列表项文本
+		if (mSpinner1List != null && mSpinner1List.size() > 0){
+			spinnerView_pop3.setData(mSpinner1List);//设置下拉菜单列表集合源
+			spinnerView_pop3.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
+		}
+
 	}
 
 	private void initEvents() {
@@ -110,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void OnFinished(int position) {
 				tv_show.setText(mSpinner2List.get(position).getParaName() + ":" + mSpinner2List.get(position).getParaValue());
+			}
+		});
+
+		//下拉菜单列表的列表项的点击事件监听
+		spinnerView_pop3.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
+			@Override
+			public void OnFinished(int position) {
+				tv_show.setText(mSpinner1List.get(position).getParaName() + ":" + mSpinner1List.get(position).getParaValue());
 			}
 		});
 	}

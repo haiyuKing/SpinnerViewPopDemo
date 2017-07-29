@@ -43,6 +43,12 @@ public class SpinnerViewPop extends RelativeLayout {
 	private boolean canEditable = true;
 	/**文本的颜色：默认黑色*/
 	private int textDefaultColor = 0;
+
+	public static final String TYPE_POPWINDOW = "popwindow";
+	public static final String TYPE_DIALOG = "dialog";
+
+	/**下拉菜单的类型：popwindow 或者 dialog*/
+	private String spinnerType = TYPE_POPWINDOW;
 	
 	/**
 	 * 这里构造方法也很重要，不加这个很多属性不能再XML里面定义*/
@@ -89,7 +95,12 @@ public class SpinnerViewPop extends RelativeLayout {
 			public void OnMyItemClick(int position) {
 				//如果position == -1，标明是点击弹出框外面的区域
 				if(position != -1){
-					PopWindowUtil.closePopupWindows();//关闭列表对话框
+					if(spinnerType.equals(TYPE_POPWINDOW)){
+						PopWindowUtil.closePopupWindows();//关闭列表对话框
+					}else{
+						DialogUtil.closeDialog();//关闭列表对话框
+					}
+
 					selected = true;
 					setSelectedIndexAndText(position);
 					if (null != itemListener) {
@@ -105,7 +116,11 @@ public class SpinnerViewPop extends RelativeLayout {
 		for(int i=0;i<mTitleTextList.size();i++){
 			itemTextList.add(mTitleTextList.get(i).getParaName());
 		}
-		PopWindowUtil.showPopupWindows(mContext, this, mTitleTextList, itemClickListener,selecteItem);
+		if(spinnerType.equals(TYPE_POPWINDOW)) {
+			PopWindowUtil.showPopupWindows(mContext, this, mTitleTextList, itemClickListener, selecteItem);
+		}else{
+			DialogUtil.showListDialog(mContext, mTitleTextList, itemClickListener,selecteItem);
+		}
 	}
 	//设置下拉菜单区域中的文本——常用
 	public void setText(String text) {
@@ -160,7 +175,15 @@ public class SpinnerViewPop extends RelativeLayout {
 	public void setSeletedItem(int index) {
 		selecteItem = index;
 	}
-	
+
+	public String getSpinnerType() {
+		return spinnerType;
+	}
+
+	public void setSpinnerType(String spinnerType) {
+		this.spinnerType = spinnerType;
+	}
+
 	/**设置选中的下标值以及文本以及SpinnearModel中的选中状态值*/
 	public void setSelectedIndexAndText(int index){
 		titleTextView.setText(mTitleTextList.get(index).getParaName().toString());

@@ -39,6 +39,15 @@
         android:layout_margin="10dp"
         />
 
+    <!-- 列表弹出框 -->
+    <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
+        android:id="@+id/spinnerView_pop3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinnerpop_height"
+        android:background="@drawable/spinnerview_pop_box_bg_drawable"
+        android:layout_margin="10dp"
+        />
+
     <TextView
         android:id="@+id/tv_show"
         android:layout_width="wrap_content"
