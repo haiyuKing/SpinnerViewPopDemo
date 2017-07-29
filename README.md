@@ -1,2 +1,2 @@
 # SpinnerViewPopDemo
-SpinnerViewPop【PopWindow样式的下拉菜单】
+SpinnerViewPop【PopWindow样式、Dialog样式的下拉菜单】
