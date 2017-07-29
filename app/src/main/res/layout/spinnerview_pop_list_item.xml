@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- popwindow样式下拉菜单列表项布局 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="@drawable/spinnerview_pop_listitem_bg_drawable"
+    >
+    
+   <TextView
+       	android:id="@+id/listitemText"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text=""
+	    android:textColor="@color/spinnerpop_normal_text_color"
+	    android:textSize="@dimen/spinnerpop_listitem_text_size"
+	    android:padding="@dimen/spinnerpop_listitem_padding"
+	    android:gravity="center"
+	    />
+
+</LinearLayout>

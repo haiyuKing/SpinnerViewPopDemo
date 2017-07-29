@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- *********************popwindow样式下拉菜单************************* -->
+    <!-- popwindow样式下拉菜单文本选中状态的颜色 -->
+    <color name="spinnerpop_selected_text_color">#0365C5</color>
+    <!-- popwindow样式下拉菜单文本默认状态的颜色 -->
+    <color name="spinnerpop_normal_text_color">#191919</color>
+    <!-- popwindow样式下拉菜单可编辑的背景颜色 -->
+    <color name="spinnerpop_canedit_bg_color">#ffffff</color>
+    <!-- popwindow样式下拉菜单不可编辑的背景颜色 -->
+    <color name="spinnerpop_notedit_bg_color">#C5C5C5</color>
+
+</resources>

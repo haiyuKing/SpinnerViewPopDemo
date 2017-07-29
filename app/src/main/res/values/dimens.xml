@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- *********************popwindow样式下拉菜单************************* -->
+    <!-- 下拉菜单文本大小 -->
+    <dimen name="spinnerpop_text_size">18sp</dimen>
+    <!-- 下拉菜单列表项的文本大小 -->
+    <dimen name="spinnerpop_listitem_text_size">18sp</dimen>
+    <!-- 下拉菜单列表项的内边距 -->
+    <dimen name="spinnerpop_listitem_padding">10dp</dimen>
+    <!-- 下拉菜单高度 -->
+    <dimen name="spinnerpop_height">42dp</dimen>
+
+</resources>

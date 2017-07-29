@@ -1,0 +1,20 @@
+{
+	"spinnerList": [
+            {
+                "paraName": "天",
+                "paraValue": "day"
+            },
+            {
+                "paraName": "周",
+                "paraValue": "week"
+            },
+            {
+                "paraName": "月",
+                "paraValue": "month"
+            },
+            {
+                "paraName": "年",
+                "paraValue": "year"
+            }
+	]
+}

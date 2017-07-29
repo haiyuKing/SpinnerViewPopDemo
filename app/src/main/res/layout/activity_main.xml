@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.why.project.spinnerviewpopdemo.MainActivity">
+
+    <!-- 列表弹出框（禁用的） -->
+    <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
+        android:id="@+id/spinnerView_pop0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinnerpop_height"
+        android:background="@drawable/spinnerview_pop_box_bg_drawable"
+        android:layout_margin="10dp"
+        />
+
+    <!-- 列表弹出框 -->
+    <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
+        android:id="@+id/spinnerView_pop1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinnerpop_height"
+        android:background="@drawable/spinnerview_pop_box_bg_drawable"
+        android:layout_margin="10dp"
+        />
+
+    <!-- 列表弹出框 -->
+    <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
+        android:id="@+id/spinnerView_pop2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinnerpop_height"
+        android:background="@drawable/spinnerview_pop_box_bg_drawable"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示下拉菜单选中的内容"/>
+
+</LinearLayout>

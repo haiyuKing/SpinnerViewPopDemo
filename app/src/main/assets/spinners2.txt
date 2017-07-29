@@ -1,0 +1,24 @@
+﻿{
+	"spinnerList": [
+            {
+                "paraName": "红色",
+                "paraValue": "red",
+                "checkColor": "#FF0000"
+            },
+            {
+                "paraName": "绿色",
+                "paraValue": "green",
+                "checkColor": "#00FF00"
+            },
+            {
+                "paraName": "黄色",
+                "paraValue": "yellow",
+                "checkColor": "#FFFF00"
+            },
+            {
+                "paraName": "蓝色",
+                "paraValue": "blue",
+                "checkColor": "#0000FF"
+            }
+	]
+}
