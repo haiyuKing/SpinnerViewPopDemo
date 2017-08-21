@@ -8,7 +8,9 @@ import android.widget.Toast;
 
 import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
 import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerConfirmClickListener;
 import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerItemClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewMultiDialog;
 import com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop;
 
 import org.json.JSONArray;
@@ -18,19 +20,30 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import static com.why.project.spinnerviewpopdemo.R.id.spinnerView_pop0;
+import static com.why.project.spinnerviewpopdemo.R.id.spinnerView_pop1;
+import static com.why.project.spinnerviewpopdemo.R.id.spinnerView_pop2;
+import static com.why.project.spinnerviewpopdemo.R.id.spinnerView_pop3;
+
 public class MainActivity extends AppCompatActivity {
 
-	private SpinnerViewPop spinnerView_pop0;
+	private SpinnerViewPop spinnerView_notEditable;
 
-	private SpinnerViewPop spinnerView_pop1;
+	private SpinnerViewPop spinnerView_pop;
 	/**下拉菜单列表集合*/
 	private ArrayList<SpinnearModel> mSpinner1List;
 
-	private SpinnerViewPop spinnerView_pop2;
+	private SpinnerViewPop spinnerView_pop_bgcolor;
 	/**下拉菜单列表集合*/
 	private ArrayList<SpinnearModel> mSpinner2List;
 
-	private SpinnerViewPop spinnerView_pop3;
+	private SpinnerViewPop spinnerView_radioDialog;
+	/**下拉菜单列表集合*/
+	private ArrayList<SpinnearModel> mSpinner3List;
+
+	private SpinnerViewMultiDialog spinnerView_multDialog;
+	/**下拉菜单列表集合*/
+	private ArrayList<SpinnearModel> mSpinner4List;
 
 	private TextView tv_show;
 
@@ -46,24 +59,25 @@ public class MainActivity extends AppCompatActivity {
 
 	private void initViews() {
 
-		spinnerView_pop0 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop0);
-		spinnerView_pop0.setEditable(false);//禁用下拉菜单区域
+		spinnerView_notEditable = (SpinnerViewPop) findViewById(spinnerView_pop0);
+		spinnerView_notEditable.setEditable(false);//禁用下拉菜单区域
 
-		spinnerView_pop1 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop1);
-		spinnerView_pop1.setHandedPopup(true);//实现点击下拉菜单区域触发事件，一般用来隐藏软键盘，或者网络请求，最后手动弹出下拉菜单
+		spinnerView_pop = (SpinnerViewPop) findViewById(spinnerView_pop1);
+		spinnerView_pop.setHandedPopup(true);//实现点击下拉菜单区域触发事件，一般用来隐藏软键盘，或者网络请求，最后手动弹出下拉菜单
 
-		spinnerView_pop2 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop2);
-		spinnerView_pop2.setHandedPopup(false);//默认为false，点击下拉菜单区域直接弹出下拉菜单
+		spinnerView_pop_bgcolor = (SpinnerViewPop) findViewById(spinnerView_pop2);
 
-		spinnerView_pop3 = (SpinnerViewPop) findViewById(R.id.spinnerView_pop3);
-		spinnerView_pop3.setSpinnerType(SpinnerViewPop.TYPE_DIALOG);//设置对话框样式，默认为popwindow样式
-		spinnerView_pop3.setHandedPopup(false);//默认为false，点击下拉菜单区域直接弹出下拉菜单
+		spinnerView_radioDialog = (SpinnerViewPop) findViewById(spinnerView_pop3);
+		spinnerView_radioDialog.setSpinnerType(SpinnerViewPop.TYPE_DIALOG);//设置对话框样式，默认为popwindow样式
+
+		spinnerView_multDialog = (SpinnerViewMultiDialog) findViewById(R.id.spinnerView_pop4);
 
 		tv_show = (TextView) findViewById(R.id.tv_show);
 
 	}
 
 	private void initDatas() {
+		/*==============================普通下拉菜单列表项=========================================*/
 		mSpinner1List = new ArrayList<SpinnearModel>();
 		//模拟获取数据集合
 		try{
@@ -73,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
 		}
 		//设置下拉菜单显示的列表项文本
 		if (mSpinner1List != null && mSpinner1List.size() > 0){
-			spinnerView_pop1.setData(mSpinner1List);//设置下拉菜单列表集合源
-			spinnerView_pop1.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
+			spinnerView_pop.setData(mSpinner1List);//设置下拉菜单列表集合源
+			spinnerView_pop.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
 		}
-
+		/*==============================下拉菜单列表项带有背景颜色=========================================*/
 		mSpinner2List = new ArrayList<SpinnearModel>();
 		//模拟获取数据集合
 		try{
@@ -86,14 +100,36 @@ public class MainActivity extends AppCompatActivity {
 		}
 		//设置下拉菜单显示的列表项文本
 		if (mSpinner2List != null && mSpinner2List.size() > 0){
-			spinnerView_pop2.setData(mSpinner2List);//设置下拉菜单列表集合源
-			spinnerView_pop2.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
+			spinnerView_pop_bgcolor.setData(mSpinner2List);//设置下拉菜单列表集合源
+			spinnerView_pop_bgcolor.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
 		}
 
+		/*==============================下拉菜单列表项单选对话框=========================================*/
+		mSpinner3List = new ArrayList<SpinnearModel>();
+		//模拟获取数据集合
+		try{
+			mSpinner3List = parseJsonArray("spinners3.txt");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		//设置下拉菜单显示的列表项文本
-		if (mSpinner1List != null && mSpinner1List.size() > 0){
-			spinnerView_pop3.setData(mSpinner1List);//设置下拉菜单列表集合源
-			spinnerView_pop3.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
+		if (mSpinner3List != null && mSpinner3List.size() > 0){
+			spinnerView_radioDialog.setData(mSpinner3List);//设置下拉菜单列表集合源
+			spinnerView_radioDialog.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
+		}
+
+		/*==============================下拉菜单列表项多选对话框=========================================*/
+		mSpinner4List = new ArrayList<SpinnearModel>();
+		//模拟获取数据集合
+		try{
+			mSpinner4List = parseJsonArray("spinners4.txt");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		//设置下拉菜单显示的列表项文本
+		if (mSpinner4List != null && mSpinner4List.size() > 0){
+			spinnerView_multDialog.setData(mSpinner4List);//设置下拉菜单列表集合源
+			spinnerView_multDialog.setHint("选择你的爱好");
 		}
 
 	}
@@ -101,35 +137,69 @@ public class MainActivity extends AppCompatActivity {
 	private void initEvents() {
 
 		//下拉菜单区域的点击事件监听
-		spinnerView_pop1.setOnSpinnerClickListener(new OnSpinnerClickListener() {
+		spinnerView_pop.setOnSpinnerClickListener(new OnSpinnerClickListener() {
 			@Override
 			public void OnFinished() {
 				//KeyboardUtil.hideKeyboard(MainActivity.this);//隐藏软键盘
-				spinnerView_pop1.PopupListDialog();
+				spinnerView_pop.PopupListDialog();
 			}
 		});
-
 		//下拉菜单列表的列表项的点击事件监听
-		spinnerView_pop1.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
+		spinnerView_pop.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
 			@Override
 			public void OnFinished(int position) {
 				tv_show.setText(mSpinner1List.get(position).getParaName() + ":" + mSpinner1List.get(position).getParaValue());
+				StringBuffer str = new StringBuffer();
+				for(int i=0;i<mSpinner1List.size();i++){
+					str.append(mSpinner1List.get(i).getParaName() + ":" + mSpinner1List.get(i).isSelectedState() + "\n");
+				}
+				tv_show.setText(tv_show.getText() + "\n=====================\n" + str);
 			}
 		});
 
 		//下拉菜单列表的列表项的点击事件监听
-		spinnerView_pop2.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
+		spinnerView_pop_bgcolor.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
 			@Override
 			public void OnFinished(int position) {
 				tv_show.setText(mSpinner2List.get(position).getParaName() + ":" + mSpinner2List.get(position).getParaValue());
+				StringBuffer str = new StringBuffer();
+				for(int i=0;i<mSpinner2List.size();i++){
+					str.append(mSpinner2List.get(i).getParaName() + ":" + mSpinner2List.get(i).isSelectedState() + "\n");
+				}
+				tv_show.setText(tv_show.getText() + "\n=====================\n" + str);
 			}
 		});
 
 		//下拉菜单列表的列表项的点击事件监听
-		spinnerView_pop3.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
+		spinnerView_radioDialog.setOnSpinnerItemClickListener(new OnSpinnerItemClickListener() {
 			@Override
 			public void OnFinished(int position) {
-				tv_show.setText(mSpinner1List.get(position).getParaName() + ":" + mSpinner1List.get(position).getParaValue());
+				tv_show.setText(mSpinner3List.get(position).getParaName() + ":" + mSpinner3List.get(position).getParaValue());
+				StringBuffer str = new StringBuffer();
+				for(int i=0;i<mSpinner3List.size();i++){
+					str.append(mSpinner3List.get(i).getParaName() + ":" + mSpinner3List.get(i).isSelectedState() + "\n");
+				}
+				tv_show.setText(tv_show.getText() + "\n=====================\n" + str);
+			}
+		});
+
+		//下拉菜单列表的列表项的点击事件监听
+		spinnerView_multDialog.setOnSpinnerConfirmClickListener(new OnSpinnerConfirmClickListener() {
+			@Override
+			public void OnConfirmed(ArrayList<Boolean> selecteIndexList) {
+				StringBuffer str1 = new StringBuffer();
+				for(int i=0;i<selecteIndexList.size();i++){
+					if(selecteIndexList.get(i)){//如果为true,则执行下面的代码
+						str1.append(mSpinner4List.get(i).getParaName() + ":" + mSpinner4List.get(i).getParaValue() + "\n");
+					}
+				}
+				tv_show.setText(str1);
+
+				StringBuffer str = new StringBuffer();
+				for(int i=0;i<mSpinner4List.size();i++){
+					str.append(mSpinner4List.get(i).getParaName() + ":" + mSpinner4List.get(i).isSelectedState() + "\n");
+				}
+				tv_show.setText(tv_show.getText() + "=====================\n" + str);
 			}
 		});
 	}

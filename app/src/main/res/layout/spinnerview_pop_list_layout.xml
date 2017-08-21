@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:divider="@drawable/spinnerview_pop_list_line"
         android:dividerHeight="1dp"
+        android:padding="1dp"
         android:scrollbars="none"
         android:cacheColorHint="@android:color/transparent"
 	    android:listSelector="@android:color/transparent" >

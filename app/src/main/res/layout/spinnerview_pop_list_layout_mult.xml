@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- popwindow样式下拉菜单列表布局【多选对话框】 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/spinnerview_pop_list_bg_drawable"
+              android:gravity="center_horizontal"
+              android:orientation="vertical" >
+
+    <!--
+      	去除listview的拖动背景色android:cacheColorHint="@android:color/transparent"
+      	修改listview的Item默认选择时的黄色背景android:listSelector="@android:color/transparent"
+        -->
+    <!--修改分割线样式android:divider="@drawable/dialogutil_list_line"
+        android:dividerHeight="1dp" -->
+    <!-- 去除滚动条android:scrollbars="none" -->
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/spinnerview_pop_list_line"
+        android:dividerHeight="1dp"
+        android:padding="1dp"
+        android:scrollbars="none"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+    <!-- 分割线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/spinnerview_pop_list_line"
+        android:layout_margin="1dp"></View>
+
+    <!-- 确定、取消区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <!-- 取消 -->
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/spinnerpop_selected_text_color"
+            android:textSize="@dimen/spinnerpop_listitem_text_size"
+            android:layout_margin="@dimen/spinnerpop_confirm_margin"/>
+
+        <!-- 确定 -->
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:textColor="@color/spinnerpop_selected_text_color"
+            android:textSize="@dimen/spinnerpop_listitem_text_size"
+            android:layout_margin="@dimen/spinnerpop_confirm_margin"/>
+
+    </LinearLayout>
+
+</LinearLayout>

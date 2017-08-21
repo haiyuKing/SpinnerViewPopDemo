@@ -21,7 +21,7 @@
         android:layout_margin="10dp"
         />
 
-    <!-- 列表弹出框 -->
+    <!-- 列表弹出框（popwindow样式） -->
     <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
         android:id="@+id/spinnerView_pop1"
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         android:layout_margin="10dp"
         />
 
-    <!-- 列表弹出框 -->
+    <!-- 列表弹出框（popwindow样式含背景色） -->
     <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
         android:id="@+id/spinnerView_pop2"
         android:layout_width="match_parent"
@@ -39,9 +39,18 @@
         android:layout_margin="10dp"
         />
 
-    <!-- 列表弹出框 -->
+    <!-- 列表弹出框（对话框样式【单选】） -->
     <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop
         android:id="@+id/spinnerView_pop3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinnerpop_height"
+        android:background="@drawable/spinnerview_pop_box_bg_drawable"
+        android:layout_margin="10dp"
+        />
+
+    <!-- 列表弹出框（对话框样式【多选】） -->
+    <com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewMultiDialog
+        android:id="@+id/spinnerView_pop4"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spinnerpop_height"
         android:background="@drawable/spinnerview_pop_box_bg_drawable"

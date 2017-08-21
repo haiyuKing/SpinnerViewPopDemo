@@ -67,7 +67,9 @@ public class PopWindowUtil {
 			@Override
 			public void onDismiss() {
 				//执行还原原始状态的操作，比如选中状态颜色高亮显示[去除],不能使用notifyDataSetInvalidated()，否则会出现popwindow显示错位的情况
-				itemClickListener.OnMyItemClick(-1);
+				if(itemClickListener != null){
+					itemClickListener.OnMyItemClick(-1);
+				}
 			}
 		});
 		

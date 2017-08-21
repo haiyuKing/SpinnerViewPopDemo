@@ -98,7 +98,6 @@ public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearModel>{
 						for (int j = 0; j < stateSet.length; j++) {
 							Log.d(TAG, "state =" + stateSet[j]);
 							Drawable drawable = (Drawable) getDrawableMethod.invoke(mySelectorGrad, i);//这就是你要获得的Enabled为false时候的drawable
-
 						}
 					}
 				}
@@ -109,8 +108,6 @@ public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearModel>{
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
-
-
 		}
 		
 		return view;

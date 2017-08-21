@@ -1,0 +1,24 @@
+﻿{
+	"spinnerList": [
+            {
+                "paraName": "乒乓球",
+                "paraValue": "Pingpong"
+            },
+            {
+                "paraName": "羽毛球",
+                "paraValue": "Badminton"
+            },
+            {
+                "paraName": "台球",
+                "paraValue": "Billiards"
+            },
+            {
+                "paraName": "篮球",
+                "paraValue": "Basketball"
+            },
+            {
+                "paraName": "足球",
+                "paraValue": "Football"
+            }
+	]
+}

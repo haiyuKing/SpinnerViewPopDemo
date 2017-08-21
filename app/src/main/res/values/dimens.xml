@@ -12,5 +12,7 @@
     <dimen name="spinnerpop_listitem_padding">10dp</dimen>
     <!-- 下拉菜单高度 -->
     <dimen name="spinnerpop_height">42dp</dimen>
+    <!-- 下拉菜单按钮的外边距 -->
+    <dimen name="spinnerpop_confirm_margin">15dp</dimen>
 
 </resources>

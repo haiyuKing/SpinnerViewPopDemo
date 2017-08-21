@@ -17,6 +17,7 @@ public class SpinnearModel {
 	
 	public SpinnearModel(){
 		selectedState = false;
+		checkColor = "noData";
 	}
 	
 	public String getParaName() {

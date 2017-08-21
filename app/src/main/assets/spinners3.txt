@@ -1,0 +1,12 @@
+﻿{
+	"spinnerList": [
+            {
+                "paraName": "男",
+                "paraValue": "boy"
+            },
+            {
+                "paraName": "女",
+                "paraValue": "girl"
+            }
+	]
+}
