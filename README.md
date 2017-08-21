@@ -1,2 +1,2 @@
 # SpinnerViewPopDemo
-SpinnerViewPop【PopWindow样式、Dialog样式的下拉菜单】
+SpinnerViewPop【PopWindow样式（单选）、Dialog样式（单选+多选）的下拉菜单】
