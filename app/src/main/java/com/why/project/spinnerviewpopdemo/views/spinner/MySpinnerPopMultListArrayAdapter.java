@@ -15,7 +15,6 @@ import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.why.project.spinnerviewpopdemo.R.id.id_checkedTextView;
 
 /**
  * Created by HaiyuKing
@@ -55,7 +54,7 @@ public class MySpinnerPopMultListArrayAdapter  extends ArrayAdapter<SpinnearMode
 		if(convertView == null){
 			view = LayoutInflater.from(mcontext).inflate(listitemResourceid, parent, false);
 			holder = new ViewHolder();
-			holder.id_checkedTextView = (CheckedTextView) view.findViewById(id_checkedTextView);
+			holder.id_checkedTextView = (CheckedTextView) view.findViewById(R.id.id_checkedTextView);
 			view.setTag(holder);
 		}else{
 			view = convertView;
