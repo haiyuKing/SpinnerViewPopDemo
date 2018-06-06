@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
-import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerClickListener;
-import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerConfirmClickListener;
-import com.why.project.spinnerviewpopdemo.views.spinner.OnSpinnerItemClickListener;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerConfirmClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerItemClickListener;
 import com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewMultiDialog;
 import com.why.project.spinnerviewpopdemo.views.spinner.SpinnerViewPop;
 
@@ -31,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
 
 	private SpinnerViewPop spinnerView_pop;
 	/**下拉菜单列表集合*/
-	private ArrayList<SpinnearModel> mSpinner1List;
+	private ArrayList<SpinnearBean> mSpinner1List;
 
 	private SpinnerViewPop spinnerView_pop_bgcolor;
 	/**下拉菜单列表集合*/
-	private ArrayList<SpinnearModel> mSpinner2List;
+	private ArrayList<SpinnearBean> mSpinner2List;
 
 	private SpinnerViewPop spinnerView_radioDialog;
 	/**下拉菜单列表集合*/
-	private ArrayList<SpinnearModel> mSpinner3List;
+	private ArrayList<SpinnearBean> mSpinner3List;
 
 	private SpinnerViewMultiDialog spinnerView_multDialog;
 	/**下拉菜单列表集合*/
-	private ArrayList<SpinnearModel> mSpinner4List;
+	private ArrayList<SpinnearBean> mSpinner4List;
 
 	private TextView tv_show;
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
 	private void initDatas() {
 		/*==============================普通下拉菜单列表项=========================================*/
-		mSpinner1List = new ArrayList<SpinnearModel>();
+		mSpinner1List = new ArrayList<SpinnearBean>();
 		//模拟获取数据集合
 		try{
 			mSpinner1List = parseJsonArray("spinners.txt");
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 			spinnerView_pop.setSelectedIndexAndText(0);//更改下拉菜单选中的列表项下标值
 		}
 		/*==============================下拉菜单列表项带有背景颜色=========================================*/
-		mSpinner2List = new ArrayList<SpinnearModel>();
+		mSpinner2List = new ArrayList<SpinnearBean>();
 		//模拟获取数据集合
 		try{
 			mSpinner2List = parseJsonArray("spinners2.txt");
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		/*==============================下拉菜单列表项单选对话框=========================================*/
-		mSpinner3List = new ArrayList<SpinnearModel>();
+		mSpinner3List = new ArrayList<SpinnearBean>();
 		//模拟获取数据集合
 		try{
 			mSpinner3List = parseJsonArray("spinners3.txt");
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		/*==============================下拉菜单列表项多选对话框=========================================*/
-		mSpinner4List = new ArrayList<SpinnearModel>();
+		mSpinner4List = new ArrayList<SpinnearBean>();
 		//模拟获取数据集合
 		try{
 			mSpinner4List = parseJsonArray("spinners4.txt");
@@ -215,9 +215,9 @@ public class MainActivity extends AppCompatActivity {
 	/**
 	 * 解析JSON文件的简单数组
 	 */
-	private ArrayList<SpinnearModel> parseJsonArray(String fileName) throws Exception{
+	private ArrayList<SpinnearBean> parseJsonArray(String fileName) throws Exception{
 
-		ArrayList<SpinnearModel> itemsList = new ArrayList<SpinnearModel>();
+		ArrayList<SpinnearBean> itemsList = new ArrayList<SpinnearBean>();
 
 		String jsonStr = getStringFromAssert(MainActivity.this, fileName);
 		if(jsonStr.equals("")){
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
 		JSONObject allData = new JSONObject(jsonStr);  //全部内容变为一个项
 		JSONArray jsonArr = allData.getJSONArray(LISTROOTNODE); //取出数组
 		for(int x = 0;x<jsonArr.length();x++){
-			SpinnearModel model = new SpinnearModel();
+			SpinnearBean model = new SpinnearBean();
 			JSONObject jsonobj = jsonArr.getJSONObject(x);
 			model.setParaName(jsonobj.getString(KEY_LISTITEM_NAME));
 			model.setParaValue(jsonobj.getString(KEY_LISTITEM_VALUE));

@@ -1,4 +1,4 @@
-package com.why.project.spinnerviewpopdemo.views.spinner;
+package com.why.project.spinnerviewpopdemo.views.spinner.listener;
 
 /**
  * @Created HaiyuKing

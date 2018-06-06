@@ -1,4 +1,4 @@
-package com.why.project.spinnerviewpopdemo.views.spinner;
+package com.why.project.spinnerviewpopdemo.views.spinner.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,7 +23,7 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 
-public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearModel>{
+public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearBean>{
 	
 	private Context mcontext;
 	private int listitemResourceid;//列表项的布局文件ID
@@ -31,7 +31,7 @@ public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearModel>{
 	/**
 	 * 重写构造函数，获取列表项布局文件ID*/
 	public MySpinnerPopListArrayAdapter(Context context, int resource,
-			List<SpinnearModel> objects,int selecteItem) {
+										List<SpinnearBean> objects, int selecteItem) {
 		super(context, resource, objects);
 		listitemResourceid = resource;
 		mcontext = context;
@@ -42,7 +42,7 @@ public class MySpinnerPopListArrayAdapter extends ArrayAdapter<SpinnearModel>{
 	 * 重写getView*/
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		SpinnearModel listitem = getItem(position);
+		SpinnearBean listitem = getItem(position);
 		final int index = position;
 		final ViewHolder holder;
 		View view;

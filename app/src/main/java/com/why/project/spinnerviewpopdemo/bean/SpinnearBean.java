@@ -1,9 +1,9 @@
-package com.why.project.spinnerviewpopdemo.model;
+package com.why.project.spinnerviewpopdemo.bean;
 
 /**
  * Used 下拉菜单的类
  */
-public class SpinnearModel {
+public class SpinnearBean {
 
 	/**下拉菜单项的文字*/
 	private String paraName;
@@ -15,7 +15,7 @@ public class SpinnearModel {
 	/**下拉菜单项的背景颜色值:例如：#C5C5C5*/
 	private String checkColor = "noData";//默认值为noData，用来判断是否赋值过这个字段
 	
-	public SpinnearModel(){
+	public SpinnearBean(){
 		selectedState = false;
 		checkColor = "noData";
 	}

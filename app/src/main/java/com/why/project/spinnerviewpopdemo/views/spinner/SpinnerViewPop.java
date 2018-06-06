@@ -11,7 +11,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
+import com.why.project.spinnerviewpopdemo.views.spinner.adapter.MySpinnerPopListArrayAdapter;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerItemClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.util.DialogUtil;
+import com.why.project.spinnerviewpopdemo.views.spinner.util.PopWindowUtil;
 
 import java.util.ArrayList;
 
@@ -23,14 +28,14 @@ public class SpinnerViewPop extends RelativeLayout {
 	/**下拉菜单文本区域*/
 	private TextView titleTextView;
 	/**接收传递过来的列表项文本集合*/
-	private ArrayList<SpinnearModel> mTitleTextList = null;//原始类型为String
+	private ArrayList<SpinnearBean> mTitleTextList = null;//原始类型为String
 	
 	/**下拉菜单区域的点击事件：用于显示下拉菜单对话框*/
 	private OnSpinnerClickListener listener = null;
 	/**列表对话框的列表项点击事件：用于将选中的列表项赋值给下拉菜单区域*/
 	private OnSpinnerItemClickListener itemListener = null;
 	
-	/**对话框是否隐藏的状态值*/
+	/**是否执行下拉菜单区域的点击事件监听的状态值，默认为false（直接打开下拉菜单），如果为true的话，则先执行点击事件监听，搭配OnSpinnerClickListener使用*/
 	private boolean handedPop = false;
 	/**上下文，用于展现对话框的载体*/
 	private Context mContext;
@@ -84,7 +89,7 @@ public class SpinnerViewPop extends RelativeLayout {
 		showSelectedState(true);//设置下拉菜单文本框为选中/默认样式
 		
 		if (null == mTitleTextList) {
-			mTitleTextList = new ArrayList<SpinnearModel>();
+			mTitleTextList = new ArrayList<SpinnearBean>();
 		}
 		
 		//自定义列表项的点击事件监听——在MySpinnerListArrayAdapter类中自定义的接口
@@ -122,7 +127,7 @@ public class SpinnerViewPop extends RelativeLayout {
 	}
 
 	//设置列表项文本集合——常用
-	public void setData(ArrayList<SpinnearModel> mArrayList) {
+	public void setData(ArrayList<SpinnearBean> mArrayList) {
 		this.mTitleTextList = mArrayList;
 	}
 
@@ -136,7 +141,7 @@ public class SpinnerViewPop extends RelativeLayout {
 		mTitleTextList.get(index).setSelectedState(true);
 	}
 
-	//设置对话框的隐藏状态值
+	//设置下拉菜单区域是否执行点击事件的状态值
 	public void setHandedPopup(boolean hand) {
 		handedPop = hand;
 	}

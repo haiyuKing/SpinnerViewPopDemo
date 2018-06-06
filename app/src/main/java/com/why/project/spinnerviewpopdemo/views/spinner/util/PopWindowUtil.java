@@ -1,4 +1,4 @@
-package com.why.project.spinnerviewpopdemo.views.spinner;
+package com.why.project.spinnerviewpopdemo.views.spinner.util;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -9,7 +9,9 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
+import com.why.project.spinnerviewpopdemo.views.spinner.adapter.MySpinnerPopListArrayAdapter;
+
 import java.util.ArrayList;
 
 /**
@@ -22,7 +24,7 @@ public class PopWindowUtil {
 	private static PopupWindow popupWindow = null;
 	
 	/**显示popupWindow弹出框*/
-	public static void showPopupWindows(Context context, final View spinnerview, ArrayList<SpinnearModel> mArrayList, final MySpinnerPopListArrayAdapter.OnMyItemClickListener itemClickListener, int selecteItem){
+	public static void showPopupWindows(Context context, final View spinnerview, ArrayList<SpinnearBean> mArrayList, final MySpinnerPopListArrayAdapter.OnMyItemClickListener itemClickListener, int selecteItem){
 		
 		if(popupWindow != null){
 			if(popupWindow.isShowing()){

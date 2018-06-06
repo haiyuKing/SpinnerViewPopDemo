@@ -11,7 +11,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
+import com.why.project.spinnerviewpopdemo.views.spinner.adapter.MySpinnerPopMultListArrayAdapter;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.listener.OnSpinnerConfirmClickListener;
+import com.why.project.spinnerviewpopdemo.views.spinner.util.DialogUtil;
 
 import java.util.ArrayList;
 
@@ -27,7 +31,7 @@ public class SpinnerViewMultiDialog extends RelativeLayout {
 	/**下拉菜单文本区域*/
 	private TextView titleTextView;
 	/**接收传递过来的列表项文本集合*/
-	private ArrayList<SpinnearModel> mTitleTextList = null;//原始类型为String
+	private ArrayList<SpinnearBean> mTitleTextList = null;//原始类型为String
 
 	/**下拉菜单区域的点击事件：用于显示下拉菜单对话框*/
 	private OnSpinnerClickListener listener = null;
@@ -81,7 +85,7 @@ public class SpinnerViewMultiDialog extends RelativeLayout {
 		showSelectedState(true);//设置下拉菜单文本框为选中/默认样式
 
 		if (null == mTitleTextList) {
-			mTitleTextList = new ArrayList<SpinnearModel>();
+			mTitleTextList = new ArrayList<SpinnearBean>();
 		}
 
 		MySpinnerPopMultListArrayAdapter.OnMyMultItemClickListener multItemClickListener = new MySpinnerPopMultListArrayAdapter.OnMyMultItemClickListener() {
@@ -110,7 +114,7 @@ public class SpinnerViewMultiDialog extends RelativeLayout {
 	}
 
 	//设置列表项文本集合——常用
-	public void setData(ArrayList<SpinnearModel> mArrayList) {
+	public void setData(ArrayList<SpinnearBean> mArrayList) {
 		this.mTitleTextList = mArrayList;
 	}
 

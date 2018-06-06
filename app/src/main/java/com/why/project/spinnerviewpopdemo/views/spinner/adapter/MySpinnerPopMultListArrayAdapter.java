@@ -1,4 +1,4 @@
-package com.why.project.spinnerviewpopdemo.views.spinner;
+package com.why.project.spinnerviewpopdemo.views.spinner.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * Used 多选对话框的适配器
  */
 
-public class MySpinnerPopMultListArrayAdapter  extends ArrayAdapter<SpinnearModel> {
+public class MySpinnerPopMultListArrayAdapter  extends ArrayAdapter<SpinnearBean> {
 
 	private Context mcontext;
 	private int listitemResourceid;//列表项的布局文件ID
@@ -29,7 +29,7 @@ public class MySpinnerPopMultListArrayAdapter  extends ArrayAdapter<SpinnearMode
 	/**
 	 * 重写构造函数，获取列表项布局文件ID*/
 	public MySpinnerPopMultListArrayAdapter(Context context, int resource,
-											List<SpinnearModel> objects) {
+											List<SpinnearBean> objects) {
 		super(context, resource, objects);
 		listitemResourceid = resource;
 		mcontext = context;
@@ -46,7 +46,7 @@ public class MySpinnerPopMultListArrayAdapter  extends ArrayAdapter<SpinnearMode
 	 * 重写getView*/
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		final SpinnearModel listitem = getItem(position);
+		final SpinnearBean listitem = getItem(position);
 		final int index = position;
 
 		final ViewHolder holder;

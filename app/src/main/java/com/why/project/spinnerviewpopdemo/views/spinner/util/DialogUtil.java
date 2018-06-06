@@ -1,4 +1,4 @@
-package com.why.project.spinnerviewpopdemo.views.spinner;
+package com.why.project.spinnerviewpopdemo.views.spinner.util;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,7 +8,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.why.project.spinnerviewpopdemo.R;
-import com.why.project.spinnerviewpopdemo.model.SpinnearModel;
+import com.why.project.spinnerviewpopdemo.bean.SpinnearBean;
+import com.why.project.spinnerviewpopdemo.views.spinner.adapter.MySpinnerPopListArrayAdapter;
+import com.why.project.spinnerviewpopdemo.views.spinner.adapter.MySpinnerPopMultListArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -21,7 +23,7 @@ public class DialogUtil {
     /*=============列表对话框：样式一：单选（无radio样式）=====================*/
     /**
      *@param itemClickListener - 列表项的点击事件监听：执行调用该方式的父类的自定义监听事件 */
-    public static void showListDialog(Context context, ArrayList<SpinnearModel> mArrayList, final MySpinnerPopListArrayAdapter.OnMyItemClickListener itemClickListener, final int selecteItem) {
+    public static void showListDialog(Context context, ArrayList<SpinnearBean> mArrayList, final MySpinnerPopListArrayAdapter.OnMyItemClickListener itemClickListener, final int selecteItem) {
     	//引用进度列表对话框布局文件
     	view = View.inflate(context, R.layout.spinnerview_pop_list_layout, null);
 
@@ -36,7 +38,7 @@ public class DialogUtil {
 
 		dialog = new Dialog(context, R.style.dialogutil_list_style);
 		//设置为false，按对话框以外的地方不起作用
-		dialog.setCanceledOnTouchOutside(false);
+		dialog.setCanceledOnTouchOutside(true);
 		//设置为false，按返回键不能退出
 		dialog.setCancelable(true);
 		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -54,7 +56,7 @@ public class DialogUtil {
 	/*=============列表对话框：样式二：多选（radio样式）=====================*/
 	/**
 	 *@param itemClickListener - 列表项的点击事件监听：执行调用该方式的父类的自定义监听事件 */
-	public static void showListMultDialog(Context context, ArrayList<SpinnearModel> mArrayList, final MySpinnerPopMultListArrayAdapter.OnMyMultItemClickListener itemClickListener) {
+	public static void showListMultDialog(Context context, ArrayList<SpinnearBean> mArrayList, final MySpinnerPopMultListArrayAdapter.OnMyMultItemClickListener itemClickListener) {
 		//引用进度列表对话框布局文件
 		view = View.inflate(context, R.layout.spinnerview_pop_list_layout_mult, null);
 
@@ -88,7 +90,7 @@ public class DialogUtil {
 
 		dialog = new Dialog(context, R.style.dialogutil_list_style);
 		//设置为false，按对话框以外的地方不起作用
-		dialog.setCanceledOnTouchOutside(false);
+		dialog.setCanceledOnTouchOutside(true);
 		//设置为false，按返回键不能退出
 		dialog.setCancelable(true);
 		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
